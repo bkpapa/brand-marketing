@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>R&M Brand Ad</title>
+
+<style>
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  width: 100%;
+  height: 100%;
+  background: #111;
+  font-family: Inter, "Segoe UI", Arial, sans-serif;
+}
+
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.screen {
+  width: 470px;
+  height: 820px;
+  background: linear-gradient(180deg, #050507 0%, #0c0c12 100%);
+  color: #fff;
+  padding: 48px 36px 32px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border: 1px solid rgba(255,255,255,0.06);
+  overflow: hidden;
+  position: relative;
+}
+
+/* 背景光 */
+.screen::before {
+  content: "";
+  position: absolute;
+  width: 200%;
+  height: 200%;
+  top: -50%;
+  left: -50%;
+  background: linear-gradient(120deg, transparent 35%, rgba(255,255,255,0.08) 50%, transparent 65%);
+  animation: sweep 5s linear infinite;
+}
+
+@keyframes sweep {
+  0% { transform: translate(-40%, -40%); }
+  100% { transform: translate(40%, 40%); }
+}
+
+.logo {
+  font-size: 64px;
+  font-weight: 800;
+}
+.logo span { color: #e02020; }
+
+.headline {
+  font-size: 44px;
+  font-weight: 800;
+  margin-bottom: 18px;
+}
+
+/* 标题动效 */
+.headline-line {
+  display: block;
+  background: linear-gradient(90deg, #fff, #ff4d4d, #fff);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shimmer 4s linear infinite;
+}
+
+.headline-line:nth-child(2) {
+  animation-delay: 0.5s;
+}
+
+@keyframes shimmer {
+  0% { background-position: 0%; }
+  100% { background-position: 200%; }
+}
+
+.sub {
+  font-size: 18px;
+  color: rgba(255,255,255,0.7);
+  margin-bottom: 14px;
+}
+
+.highlight {
+  font-size: 20px;
+  color: #e02020;
+  font-weight: 700;
+}
+
+.bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* 左侧文字 */
+.left-action {
+  font-size: 22px;
+  font-weight: 700;
+}
+.left-action span {
+  color: #e02020;
+}
+
+/* 🔥 关键：二维码容器 */
+.qr-wrapper {
+  width: 140px;
+  height: 140px;
+  background: #fff;
+  border-radius: 16px;
+  padding: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  animation: qrPulse 2.5s ease-in-out infinite;
+}
+
+/* 🔥 强制填满 + 放大裁切 */
+.qr-wrapper img {
+  width: 120%;
+  height: 120%;
+  object-fit: cover;
+}
+
+/* 呼吸 */
+@keyframes qrPulse {
+  0%,100% { transform: scale(1); }
+  50% { transform: scale(1.08); }
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="screen">
+
+  <div class="logo">R<span>&amp;</span>M</div>
+
+  <div>
+    <div class="headline">
+      <span class="headline-line">Bringing Better</span>
+      <span class="headline-line">Brands Closer</span>
+    </div>
+
+    <div class="sub">
+      High-attention checkout screens across UK convenience stores.
+      Reach real customers at the final decision moment.
+    </div>
+
+    <div class="highlight">
+      Real Exposure. Real Retail Impact.
+    </div>
+  </div>
+
+  <div class="bottom">
+
+    <div class="left-action">
+      <span>Scan</span><br>
+      For brand enquiries
+    </div>
+
+    <div class="qr-wrapper">
+      <img src="qr.png">
+    </div>
+
+  </div>
+
+</div>
+
+</body>
+</html>
